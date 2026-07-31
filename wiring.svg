@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="810" viewBox="0 0 1200 810">
+  <defs>
+    <style>
+      .bg{fill:#f5f7fa}
+      .nano{fill:#176b83;stroke:#0b4253;stroke-width:3}
+      .module{fill:#242a31;stroke:#101419;stroke-width:3}
+      .strip{fill:#e8edf2;stroke:#657482;stroke-width:3}
+      .terminal{fill:#fff;stroke:#7c8b98;stroke-width:2}
+      .part{fill:#fff;stroke:#657482;stroke-width:2}
+      .title{font:700 24px Arial,sans-serif;fill:#15212b}
+      .heading{font:700 21px Arial,sans-serif;fill:#15212b}
+      .label{font:700 16px Arial,sans-serif;fill:#15212b}
+      .dark-label{font:700 16px Arial,sans-serif;fill:#fff}
+      .note{font:15px Arial,sans-serif;fill:#46535e}
+      .small{font:13px Arial,sans-serif;fill:#46535e}
+      .power{stroke:#d73847;stroke-width:6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+      .ground{stroke:#252b31;stroke-width:6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+      .led-data{stroke:#e3a000;stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+      .shake-data{stroke:#368b4a;stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+      .power-dot{fill:#d73847}
+      .ground-dot{fill:#252b31}
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="780"/>
+  <text class="title" x="600" y="38" text-anchor="middle">Кристальная лампа: Arduino Nano + KY-020 + лента 5 В</text>
+
+  <!-- Arduino Nano -->
+  <rect class="nano" x="100" y="150" width="330" height="450" rx="8"/>
+  <text class="dark-label" x="265" y="192" text-anchor="middle" font-size="23">Arduino Nano</text>
+  <text class="dark-label" x="265" y="220" text-anchor="middle">ATmega328P, 5 В</text>
+
+  <rect class="terminal" x="205" y="92" width="120" height="58" rx="7"/>
+  <text class="label" x="265" y="118" text-anchor="middle">USB-C</text>
+  <text class="small" x="265" y="139" text-anchor="middle">единственное питание</text>
+
+  <rect class="terminal" x="390" y="250" width="80" height="40" rx="5"/>
+  <text class="label" x="430" y="276" text-anchor="middle">D2</text>
+
+  <rect class="terminal" x="390" y="350" width="80" height="40" rx="5"/>
+  <text class="label" x="430" y="376" text-anchor="middle">D6</text>
+
+  <rect class="terminal" x="170" y="565" width="90" height="55" rx="5"/>
+  <text class="label" x="215" y="598" text-anchor="middle">GND</text>
+
+  <rect class="terminal" x="285" y="565" width="90" height="55" rx="5"/>
+  <text class="label" x="330" y="598" text-anchor="middle">5V</text>
+
+  <!-- KY-020 -->
+  <rect class="module" x="760" y="95" width="280" height="220" rx="8"/>
+  <text class="dark-label" x="900" y="137" text-anchor="middle" font-size="22">KY-020</text>
+  <text class="dark-label" x="900" y="165" text-anchor="middle">датчик наклона</text>
+  <text class="dark-label" x="900" y="211" text-anchor="middle">шариковый переключатель</text>
+
+  <rect class="terminal" x="710" y="160" width="90" height="40" rx="5"/>
+  <text class="label" x="755" y="186" text-anchor="middle">S</text>
+
+  <rect class="terminal" x="1000" y="160" width="80" height="40" rx="5"/>
+  <text class="label" x="1040" y="186" text-anchor="middle">+</text>
+
+  <rect class="terminal" x="1000" y="230" width="80" height="40" rx="5"/>
+  <text class="label" x="1040" y="256" text-anchor="middle">-</text>
+
+  <!-- LED strip -->
+  <rect class="strip" x="760" y="390" width="280" height="245" rx="8"/>
+  <text class="heading" x="900" y="435" text-anchor="middle">Адресная лента 5 В</text>
+  <text class="note" x="900" y="463" text-anchor="middle">WS2811, 5 В</text>
+  <text class="small" x="900" y="493" text-anchor="middle">подключение со стороны DIN</text>
+
+  <rect class="terminal" x="710" y="450" width="90" height="40" rx="5"/>
+  <text class="label" x="755" y="476" text-anchor="middle">DIN</text>
+
+  <rect class="terminal" x="1000" y="500" width="80" height="40" rx="5"/>
+  <text class="label" x="1040" y="526" text-anchor="middle">5V</text>
+
+  <rect class="terminal" x="1000" y="570" width="80" height="40" rx="5"/>
+  <text class="label" x="1040" y="596" text-anchor="middle">GND</text>
+
+  <!-- D2 to sensor: upper signal route -->
+  <path class="shake-data" d="M470 270 H610 V180 H710"/>
+  <text class="note" x="610" y="165" text-anchor="middle">изменение HIGH / LOW</text>
+
+  <!-- D6 to strip through resistor: middle signal route -->
+  <path class="led-data" d="M470 370 H535"/>
+  <rect class="part" x="535" y="348" width="125" height="44" rx="5"/>
+  <text class="label" x="597" y="376" text-anchor="middle">330 Ом</text>
+  <path class="led-data" d="M660 370 H685 V470 H710"/>
+  <text class="note" x="597" y="420" text-anchor="middle">линия данных LED</text>
+
+  <!-- Separate 5 V bus: lower edge, then far right -->
+  <path class="power" d="M330 620 V690 H1100 V180 H1080"/>
+  <circle class="power-dot" cx="1100" cy="520" r="7"/>
+  <path class="power" d="M1100 520 H1080"/>
+  <text class="label" x="705" y="682" text-anchor="middle" fill="#d73847">5V</text>
+
+  <!-- Separate ground bus: lowest edge, then far right -->
+  <path class="ground" d="M215 620 V730 H1140 V250 H1080"/>
+  <circle class="ground-dot" cx="1140" cy="590" r="7"/>
+  <path class="ground" d="M1140 590 H1080"/>
+  <text class="label" x="750" y="752" text-anchor="middle">GND</text>
+
+  <!-- Capacitor between the two lower buses -->
+  <text class="label" x="520" y="640" text-anchor="middle">470-1000 мкФ</text>
+  <text class="small" x="520" y="662" text-anchor="middle">электролитический конденсатор</text>
+  <path class="power" d="M520 690 V700"/>
+  <line x1="492" y1="703" x2="548" y2="703" stroke="#657482" stroke-width="4"/>
+  <line x1="492" y1="717" x2="548" y2="717" stroke="#657482" stroke-width="4"/>
+  <path class="ground" d="M520 720 V730"/>
+  <text class="small" x="558" y="707">+</text>
+  <text class="small" x="558" y="725">-</text>
+  <circle class="power-dot" cx="520" cy="690" r="7"/>
+  <circle class="ground-dot" cx="520" cy="730" r="7"/>
+
+  <!-- Legend -->
+  <path class="shake-data" d="M100 60 H145"/>
+  <text class="small" x="155" y="65">датчик</text>
+  <path class="led-data" d="M250 60 H295"/>
+  <text class="small" x="305" y="65">данные LED</text>
+  <path class="power" d="M425 60 H470"/>
+  <text class="small" x="480" y="65">5V</text>
+  <path class="ground" d="M545 60 H590"/>
+  <text class="small" x="600" y="65">GND</text>
+
+  <text class="note" x="600" y="792" text-anchor="middle">Лимит прошивки: 400 мА. Все земли общие.</text>
+</svg>
