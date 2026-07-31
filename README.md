@@ -5,6 +5,10 @@
 или встряхиванием датчика наклона KY-020. Wi-Fi и веб-интерфейса в этой версии
 нет.
 
+## 3D-модель
+
+Готовая модель корпуса для печати: [скачать Crystal_Lamp.3mf](models/Crystal_Lamp.3mf).
+
 Проект сохраняет удачные части архитектуры
 [`pavel-gorlov/fireplace`](https://github.com/pavel-gorlov/fireplace):
 PlatformIO, Arduino framework, FastLED, отдельные модули эффектов и сохранение
